@@ -31,7 +31,8 @@ $result = $service->spreadsheets_values->update(
 */
 require_once('./Bot2Sheet.php');
 $aaa = new BOT2Sheet();
-$row = $aaa->readSheet('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A1:B1')[0];
+$bbb = $aaa->readSheet('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A1:B1');
+$row = $bbb[0];
 
 
 
