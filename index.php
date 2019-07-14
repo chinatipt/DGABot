@@ -17,10 +17,10 @@ $row = $value[0];
 
 $values = [ ['Chin'] ];
 $body = new Google_Service_Sheets_ValueRange([
-    'values' ==> $values
+    'values' => $values
 ]);
 $params = [
-    'valueInputOption' ==> 'RAW'
+    'valueInputOption' => 'RAW'
 ];
 $result = $service->spreadsheets_values->update(
     $spreadsheetId,
