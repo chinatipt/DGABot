@@ -10,10 +10,10 @@ $client->setAuthConfig(__DIR__ . '/credentials.json');
 $service = new Google_Service_Sheets($client);
 $spreadsheetId = '10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M';
 
-$range = 'Sheet1!:A1:A1';
-$response = $service->spreadsheets_values->get($spreadsheetId, $range);
+$range = 'Sheet1!:A1:B1';
+$response = $service->spreadsheets_values->get($spreadsheetId, $range);/*
 $value = $response->getValues();
-$row = $value[0];/*
+$row = $value[0];
 */
 
 require_once('./LINEBotTiny.php');
