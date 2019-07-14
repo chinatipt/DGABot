@@ -13,12 +13,12 @@ class BOT2Sheet
         $client->setAuthConfig(__DIR__ . '/credentials.json');
         $service = new Google_Service_Sheets($client);
 
-        $this->tmpClient = $service;
+        $this->$tmpClient = $service;
     }
 
     public function readSheet($spreadsheetId, $range)
     {
-        $response = $this->tmpClient->spreadsheets_values->get($spreadsheetId, range);
+        $response = $this->$tmpClient->spreadsheets_values->get($spreadsheetId, range);
         $value = $response->getValues();
 
         return $value;
