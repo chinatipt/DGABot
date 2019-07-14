@@ -10,11 +10,28 @@ $client->setAuthConfig(__DIR__ . '/credentials.json');
 $service = new Google_Service_Sheets($client);
 $spreadsheetId = '10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M';
 
-$range = 'Sheet1!A1:B1';
-$response = $service->spreadsheets_values->get($spreadsheetId, $range);
+$response = $service->spreadsheets_values->get($spreadsheetId, 'Sheet1!A1:B1');
 $value = $response->getValues();
-$row = $value[0];/*
-*/
+$row = $value[0];
+
+
+$values = [ ['Chin'] ];
+$body = new Google_Service_Sheets_ValueRange([
+    'values' ==> $values
+]);
+$params = [
+    'valueInputOption' ==> 'RAW'
+];
+$result = $service->spreadsheets_values->update(
+    $spreadsheetId,
+    'Sheet1!A2:A2',
+    $body,
+    $params
+);
+
+
+
+
 
 require_once('./LINEBotTiny.php');
 
