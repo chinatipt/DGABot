@@ -1,9 +1,9 @@
 <?php
 
 
-require __DIR__ . '/vendor/autoload.php';/*
+require __DIR__ . '/vendor/autoload.php';
 $client = new \Google_Client();
-$client->setApplicationName('LineBot PHP');
+$client->setApplicationName('LineBot PHP');/*
 $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
 $client->setAccessType('offlice');
 $client->setAuthType(__DIR__ . '/credentials.json');
