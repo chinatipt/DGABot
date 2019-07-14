@@ -1,6 +1,7 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+
+require __DIR__ . '/vendor/autoload.php';/*
 $client = new \Google_Client();
 $client->setApplicationName('LineBot PHP');
 $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
@@ -13,7 +14,7 @@ $range = 'Sheet1!:A1:A1';
 $response = $service->spreadsheets_values->get($spreadsheetId, $range);
 $value = $response->getValues();
 $row = $value[0];
-
+*/
 
 require_once('./LINEBotTiny.php');
 
