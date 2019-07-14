@@ -6,7 +6,7 @@ $client = new \Google_Client();
 $client->setApplicationName('LineBot PHP');
 $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
 $client->setAccessType('offline');
-$client->setAuthType(__DIR__ . '/credentials.json');
+$client->setAuthConfig(__DIR__ . '/credentials.json');
 $service = new Google_Service_Sheets($client);/*
 $spreadsheetId = '10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M';
 
