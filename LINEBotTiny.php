@@ -104,3 +104,5 @@ class LINEBotTiny
         return $signature;
     }
 }
+
+?>
