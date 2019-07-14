@@ -1,6 +1,6 @@
 <?php
  
-$strAccessToken = "ACCESS_TOKEN";
+$strAccessToken = getenv('LINE_BOT_CHANNEL_TOKEN');
  
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
