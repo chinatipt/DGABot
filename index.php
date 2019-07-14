@@ -32,7 +32,7 @@ foreach ($client->parseEvents() as $event) {
                         'messages' => [
                             [
                                 'type' => 'text',
-                                'text' => $reText
+                                'text' => 'what'
                             ]
                         ]
                     ]);
