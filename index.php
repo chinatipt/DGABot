@@ -1,6 +1,6 @@
 <?php
 
-
+/*
 require __DIR__ . '/vendor/autoload.php';
 $client = new \Google_Client();
 $client->setApplicationName('LineBot PHP');
@@ -28,7 +28,10 @@ $result = $service->spreadsheets_values->update(
     $body,
     $params
 );
-
+*/
+require_once('./Bot2Sheet.php');
+$aaa = new BOT2Sheet();
+$row = $aaa->readSheet('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A1:B1')[0];
 
 
 
@@ -52,7 +55,7 @@ foreach ($client->parseEvents() as $event) {
                         'replyToken' => $event['replyToken'],
                         'messages' => [
                             [
-                                'type' => 'text',
+                                'type' => 'text3',
                                 'text' => $reText
                             ]
                         ]
