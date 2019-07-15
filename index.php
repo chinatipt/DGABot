@@ -33,6 +33,7 @@ require_once('./BOT2Sheet.php');
 require_once('./LINEBotTiny.php');
 
 $service = new BOT2Sheet();
+$row = $service.readRange('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A1:B1');
 
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
@@ -49,7 +50,7 @@ foreach ($client->parseEvents() as $event) {
                         'messages' => [
                             [
                                 'type' => 'text',
-                                'text' => $message['text']
+                                'text' => $message['text'] . $row[0]
                             ]
                         ]
                     ]);

@@ -15,6 +15,12 @@ class BOT2Sheet
         $this->$service = new Google_Service_Sheets($client);
     }
 
+    public function readRange($sheetId, $range)
+    {
+        $response = $this->$service->spreadsheets_values->get($sheetId, $range);
+        $value = $response->getValues();
+        return $value[0];
+    }
 
 }
 
