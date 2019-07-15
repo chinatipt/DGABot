@@ -2,7 +2,7 @@
 
 class BOT2Sheet
 {
-    private $tmpClient;
+    private $service;
     public function __construct()
     {
         require __DIR__ . '/vendor/autoload.php';
@@ -11,14 +11,12 @@ class BOT2Sheet
         $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
         $client->setAuthConfig(__DIR__ . '/credentials.json');
-        $service = new Google_Service_Sheets($client);
-
-        $this->$tmpClient = $service;
+        $this->$service = new Google_Service_Sheets($client);
     }
 
     public function readSheet($spreadsheetId, $range)
     {
-        $response = $this->$tmpClient->spreadsheets_values->get($spreadsheetId, range);
+        $response = $this->$service->spreadsheets_values->get($spreadsheetId, $range);
         $value = $response->getValues();
 
         return $value;
