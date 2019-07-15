@@ -29,6 +29,7 @@ $result = $service->spreadsheets_values->update(
     $params
 );
 */
+require __DIR__ . '/vendor/autoload.php';
 require('./Bot2Sheet.php');
 $service = new BOT2Sheet();
 /*
