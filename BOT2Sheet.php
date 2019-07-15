@@ -2,7 +2,7 @@
 
 class BOT2Sheet
 {
-    private $service;
+    public $service;
 
     public function __construct($path)
     {
