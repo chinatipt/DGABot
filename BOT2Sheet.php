@@ -2,7 +2,8 @@
 
 class BOT2Sheet
 {
-    public $service;
+    private $service;
+    private $path;
 
     public function __construct($path)
     {
@@ -13,6 +14,7 @@ class BOT2Sheet
         $client->setAccessType('offline');
         $client->setAuthConfig($path . '/credentials.json');
         $this->service = new Google_Service_Sheets($client);
+        $this->path = $path;
     }
 
     public function readRange($sheetId, $range)
@@ -25,6 +27,7 @@ class BOT2Sheet
 
     public function writeRange($sheetId, $range, $values)
     {
+        require_once $this->path . '/vendor/autoload.php';
         $service = $this->service;
         $body = new Google_Service_Sheets_ValueRange([
             'values' => $values
