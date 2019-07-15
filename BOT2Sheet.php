@@ -2,7 +2,7 @@
 
 class BOT2Sheet
 {
-    public $service;
+    private $service;
 
     public function __construct($path)
     {
@@ -22,6 +22,24 @@ class BOT2Sheet
         $value = $response->getValues();
         return $value;
     }
+
+    public function writeRange($sheetId, $range, $values)
+    {
+        $service = $this->service;
+        $body = new Google_Service_Sheets_ValueRange([
+            'values' => $values
+        ]);
+        $params = [
+            'valueInputOption' => 'RAW'
+        ];
+        $result = $service->spreadsheets_values->update(
+            $sheetId,
+            $range,
+            $body,
+            $params
+        );
+    }
+
 
 }
 
