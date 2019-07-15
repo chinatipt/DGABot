@@ -14,7 +14,7 @@ $response = $service->spreadsheets_values->get($spreadsheetId, 'Sheet1!A1:B1');
 $value = $response->getValues();
 $row = $value[0];
 
-
+/*
 $values = [ ['Chin'] ];
 $body = new Google_Service_Sheets_ValueRange([
     'values' => $values
@@ -28,13 +28,11 @@ $result = $service->spreadsheets_values->update(
     $body,
     $params
 );
-
+*/
 
 
 
 require_once('./LINEBotTiny.php');
-
-
 
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
