@@ -30,8 +30,6 @@ $result = $service->spreadsheets_values->update(
 );
 */
 
-
-
 require_once('./LINEBotTiny.php');
 
 $channelAccessToken = getenv('access_token');
@@ -44,13 +42,12 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    $reText = $message['text'] . ' Test1';
                     $client->replyMessage([
                         'replyToken' => $event['replyToken'],
                         'messages' => [
                             [
-                                'type' => 'text3',
-                                'text' => $reText
+                                'type' => 'text',
+                                'text' => $message['text']
                             ]
                         ]
                     ]);
