@@ -4,19 +4,14 @@ class BOT2Sheet
 {
     public $service;
 
-    public function __construct()
+    public function __construct($path)
     {
-
-    }
-
-    public function connect()
-    {
-        require __DIR__ . '/vendor/autoload.php';
+        require $path . '/vendor/autoload.php';
         $client = new \Google_Client();
         $client->setApplicationName('LineBot PHP');
         $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
-        $client->setAuthConfig(__DIR__ . '/credentials.json');
+        $client->setAuthConfig($path . '/credentials.json');
         $this->service = new Google_Service_Sheets($client);
     }
 
