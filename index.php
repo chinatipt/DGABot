@@ -29,8 +29,10 @@ $result = $service->spreadsheets_values->update(
     $params
 );
 */
-
+require_once('./BOT2Sheet.php');
 require_once('./LINEBotTiny.php');
+
+$service = new BOT2Sheet();
 
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
