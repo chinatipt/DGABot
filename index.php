@@ -1,6 +1,6 @@
 <?php
 
-
+/*
 require __DIR__ . '/vendor/autoload.php';
 $client = new \Google_Client();
 $client->setApplicationName('LineBot PHP');
@@ -14,7 +14,7 @@ $response = $service->spreadsheets_values->get($spreadsheetId, 'Sheet1!A1:B1');
 $value = $response->getValues();
 $row = $value[0];
 
-/*
+
 $values = [ ['Chin'] ];
 $body = new Google_Service_Sheets_ValueRange([
     'values' => $values
