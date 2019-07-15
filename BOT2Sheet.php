@@ -27,7 +27,7 @@ class BOT2Sheet
 
     public function writeRange($sheetId, $range, $values)
     {
-        require_once $this->path . '/vendor/autoload.php';
+        //require_once $this->path . '/vendor/autoload.php';
         $service = $this->service;
         $body = new Google_Service_Sheets_ValueRange([
             'values' => $values
