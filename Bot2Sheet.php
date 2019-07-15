@@ -18,7 +18,8 @@ class BOT2Sheet
 
     public function readSheet($spreadsheetId, $range)
     {
-        $response = $this->$service->spreadsheets_values->get($spreadsheetId, $range);
+        $temp = $this->$service;
+        $response = $temp->spreadsheets_values->get($spreadsheetId, $range);
         $value = $response->getValues();
 
         return $value;
