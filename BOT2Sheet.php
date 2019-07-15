@@ -12,12 +12,12 @@ class BOT2Sheet
         $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
         $client->setAuthConfig(__DIR__ . '/credentials.json');
-        $this->$service = new Google_Service_Sheets($client);
+        $this->service = new Google_Service_Sheets($client);
     }
 
     public function readRange($sheetId, $range)
     {
-        $service = $this->$service;
+        $service = $this->service;
         $response = $service->spreadsheets_values->get($sheetId, $range);
         $value = $response->getValues();
         return $value;
