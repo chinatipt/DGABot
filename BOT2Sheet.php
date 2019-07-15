@@ -4,7 +4,7 @@ class BOT2Sheet
 {
     private $service;
 
-    public function __construct()
+    public function connect()
     {
         require __DIR__ . '/vendor/autoload.php';
         $client = new \Google_Client();
