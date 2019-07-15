@@ -29,7 +29,7 @@ $result = $service->spreadsheets_values->update(
     $params
 );
 */
-require_once('./Bot2Sheet.php');
+require('./Bot2Sheet.php');
 $service = new BOT2Sheet();
 $value = $service->readSheet('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A1:B1');
 $row = $value[0];
