@@ -11,12 +11,12 @@ class BOT2Sheet
 
     public function connect()
     {
-        require './vendor/autoload.php';
+        require __DIR__ . '/vendor/autoload.php';
         $client = new \Google_Client();
         $client->setApplicationName('LineBot PHP');
         $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
         $client->setAccessType('offline');
-        $client->setAuthConfig('./credentials.json');
+        $client->setAuthConfig(__DIR__ . '/credentials.json');
         $this->service = new Google_Service_Sheets($client);
     }
 
