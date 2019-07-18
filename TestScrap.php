@@ -11,8 +11,9 @@
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://intranet.rsu.ac.th/Signin.aspx");
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_SSLVERSION, 3);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_CAINFO, __DIR__ . "/etc/cer.crt");
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     //curl_setopt($ch, CURLOPT_POST, true);
