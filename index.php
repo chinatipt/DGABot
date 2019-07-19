@@ -148,7 +148,7 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    $client->replyMessage([
+                    $client->replyMessage(
                         /*
                         'replyToken' => $event['replyToken'],
                         'messages' => [
@@ -159,7 +159,7 @@ foreach ($client->parseEvents() as $event) {
                             ]
                         ]*/
                         "'replyToken': '".$event['replyToken']."','messages':" . $test
-                    ]);
+                    );
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
