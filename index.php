@@ -158,7 +158,7 @@ foreach ($client->parseEvents() as $event) {
                                 'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
                             ]
                         ]*/
-                        "'replyToken': '".$event['replyToken']."','messages':" . $test
+                        "{'replyToken': '".$event['replyToken']."','messages':" . $test . "}"
                     );
                     break;
                 default:
