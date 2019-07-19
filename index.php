@@ -139,7 +139,7 @@ $test = '{
   
       ]
     }
-  }';
+}';
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
@@ -149,15 +149,16 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                     $client->replyMessage([
+                        /*
                         'replyToken' => $event['replyToken'],
-                        //'messages' => [
-                        //    [
-                        //        'type' => 'text',
+                        'messages' => [
+                            [
+                                'type' => 'text',
                                 //'text' => $message['text'] . $grade[0][1]
-                        //        'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
-                        //    ]
-                        //]
-                        'message' => $test
+                                'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
+                            ]
+                        ]*/
+                        "'replyToken': 'nHuyWiB7yP5Zw52FIkcQobQuGDXCTA','messages':" . $test
                     ]);
                     break;
                 default:
