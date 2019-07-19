@@ -27,6 +27,120 @@ $grade = json_decode($page);
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
 
+$test = '{
+    "type": "bubble",
+    "styles": {
+      "footer": {
+        "separator": true
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "5890266 : Chinatip",
+          "weight": "bold",
+          "color": "#1DB446",
+          "size": "sm"
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Term 1",
+              "size": "xxs",
+              "weight": "bold",
+              "color": "#000000"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "VFX-311: Shading Lighting and Rendering for visual effect",
+                  "size": "xxs",
+                  "color": "#555555",
+                  "flex": 9
+                },
+                {
+                  "type": "text",
+                  "text": "A",
+                  "size": "xxs",
+                  "weight": "bold",
+                  "color": "#111111",
+                  "align": "center"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "VFX-311: Shading Lighting and Rendering for visual effect",
+                  "size": "xxs",
+                  "color": "#555555",
+                  "flex": 9
+                },
+                {
+                  "type": "text",
+                  "text": "B+",
+                  "size": "xxs",
+                  "weight": "bold",
+                  "color": "#111111",
+                  "align": "center"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": " ",
+                  "size": "xxs",
+                  "flex": 1
+                },
+                {
+                  "type": "text",
+                  "text": "GPA: 3.12",
+                  "size": "xxs",
+                  "weight": "bold",
+                  "color": "#111111",
+                  "align": "start",
+                  "flex": 3
+                },
+                {
+                  "type": "text",
+                  "text": "Total GPA: 1.23",
+                  "size": "xxs",
+                  "weight": "bold",
+                  "color": "#111111",
+                  "align": "start",
+                  "flex": 6
+                }
+              ]
+            }
+          ]
+        }
+  
+      ]
+    }
+  }';
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
@@ -36,13 +150,14 @@ foreach ($client->parseEvents() as $event) {
                 case 'text':
                     $client->replyMessage([
                         'replyToken' => $event['replyToken'],
-                        'messages' => [
-                            [
-                                'type' => 'text',
+                        //'messages' => [
+                        //    [
+                        //        'type' => 'text',
                                 //'text' => $message['text'] . $grade[0][1]
-                                'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
-                            ]
-                        ]
+                        //        'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
+                        //    ]
+                        //]
+                        'message' => $test
                     ]);
                     break;
                 default:
