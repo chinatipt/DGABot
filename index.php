@@ -27,122 +27,8 @@ $grade = json_decode($page);
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
 
-$test = '{
-    "type": "bubble",
-    "styles": {
-      "footer": {
-        "separator": true
-      }
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "5890266 : Chinatip",
-          "weight": "bold",
-          "color": "#1DB446",
-          "size": "sm"
-        },
-        {
-          "type": "separator",
-          "margin": "md"
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "margin": "md",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "text",
-              "text": "Term 1",
-              "size": "xxs",
-              "weight": "bold",
-              "color": "#000000"
-            },
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "VFX-311: Shading Lighting and Rendering for visual effect",
-                  "size": "xxs",
-                  "color": "#555555",
-                  "flex": 9
-                },
-                {
-                  "type": "text",
-                  "text": "A",
-                  "size": "xxs",
-                  "weight": "bold",
-                  "color": "#111111",
-                  "align": "center"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "VFX-311: Shading Lighting and Rendering for visual effect",
-                  "size": "xxs",
-                  "color": "#555555",
-                  "flex": 9
-                },
-                {
-                  "type": "text",
-                  "text": "B+",
-                  "size": "xxs",
-                  "weight": "bold",
-                  "color": "#111111",
-                  "align": "center"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": " ",
-                  "size": "xxs",
-                  "flex": 1
-                },
-                {
-                  "type": "text",
-                  "text": "GPA: 3.12",
-                  "size": "xxs",
-                  "weight": "bold",
-                  "color": "#111111",
-                  "align": "start",
-                  "flex": 3
-                },
-                {
-                  "type": "text",
-                  "text": "Total GPA: 1.23",
-                  "size": "xxs",
-                  "weight": "bold",
-                  "color": "#111111",
-                  "align": "start",
-                  "flex": 6
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-}';
-
-$temp = json_decode($test);
-
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
+$helper = new BOTFunction();
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
@@ -161,16 +47,7 @@ foreach ($client->parseEvents() as $event) {
                         ]
                     ]);
                     */
-                    $client->replyMessage([
-                        'replyToken' => $event['replyToken'],
-                        'messages' => [
-                            [
-                                'type' => 'flex',
-                                'altText' => 'This is flex',
-                                'contents' => $temp
-                            ]
-                        ]
-                    ]);
+                    $client->replyMessage([ $helper->buildFlexGrade($event['replyToken'],'AAAAA') ]);
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
