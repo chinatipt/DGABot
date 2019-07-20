@@ -147,8 +147,8 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
+                    /*
                     $client->replyMessage([
-                        
                         'replyToken' => $event['replyToken'],
                         'messages' => [
                             [
@@ -157,7 +157,11 @@ foreach ($client->parseEvents() as $event) {
                                 'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
                             ]
                         ]
-                        //"{'replyToken': ".$event['replyToken'].",'messages':" . $test . "}"
+                    ]);
+                    */
+                    $client->replyFlex([
+                        'replyToken' => $event['replyToken'],
+                        'content' => $test
                     ]);
                     break;
                 default:
