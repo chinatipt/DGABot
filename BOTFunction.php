@@ -65,7 +65,7 @@ class BOTFunction
                     ]
                 },';
             }
-            $termData = $termData .
+            $termData = substr($termData,0,-1) .
             '{
                 "type": "box",
                 "layout": "horizontal",
