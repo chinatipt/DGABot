@@ -140,6 +140,8 @@ $test = '{
     }
 }';
 
+$temp = json_decode($test);
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
@@ -159,7 +161,16 @@ foreach ($client->parseEvents() as $event) {
                         ]
                     ]);
                     */
-                    $client->replyFlex( "{'replyToken':".$event['replyToken'].",'type':'flex','altText':'this is a flex message','contents':".$test."}");
+                    $client->replyMessage([
+                        'replyToken' => $event['replyToken'],
+                        'messages' => [
+                            [
+                                'type' => 'flex',
+                                'altText' => 'This is flex',
+                                'contents' => $temp
+                            ]
+                        ]
+                    ]);
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
