@@ -109,11 +109,7 @@ class LINEBotTiny
             'http' => [
                 'method' => 'POST',
                 'header' => implode("\r\n", $header),
-                'content' => [
-                    'type' => 'flex',
-                    'altText' => 'This is flex',
-                    'content' => $flexMessage
-                ],
+                'content' => $flexMessage
             ],
         ]);
         $response = file_get_contents('https://api.line.me/v2/bot/message/reply', false, $context);
