@@ -47,7 +47,7 @@ foreach ($client->parseEvents() as $event) {
                         ]
                     ]);
                     */
-                    $client->replyMessage([ $helper->buildFlexGrade($event['replyToken'],'AAAAA') ]);
+                    $client->replyMessage( $helper->buildFlexGrade($event['replyToken'],'AAAAA') );
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
