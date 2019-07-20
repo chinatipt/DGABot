@@ -159,7 +159,7 @@ foreach ($client->parseEvents() as $event) {
                         ]
                     ]);
                     */
-                    $client->replyFlex( "'replyToken':".$event['replyToken'].",'type':'flex','altText':'this is a flex message','contents':".$test);
+                    $client->replyFlex( "{'replyToken':".$event['replyToken'].",'type':'flex','altText':'this is a flex message','contents':".$test."}");
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
