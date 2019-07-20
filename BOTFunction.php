@@ -24,10 +24,9 @@ class BOTFunction
                         "size": "sm"
                     },';
 
-        $termData = "";
         for ($i=0; $i<3; $i++)
         {
-            $termData = $termData . 
+            $termData =  
             '{
                 "type": "separator",
                 "margin": "md"
@@ -65,7 +64,7 @@ class BOTFunction
                     ]
                 },';
             }
-            $termData = substr($termData,0,-1) .
+            $termData = $termData .
             '{
                 "type": "box",
                 "layout": "horizontal",
