@@ -88,8 +88,8 @@ class LINEBotTiny
             'http' => [
                 'method' => 'POST',
                 'header' => implode("\r\n", $header),
-                //'content' => json_encode($message),
-                'content' => $message,
+                'content' => json_encode($message),
+                //'content' => $message,
             ],
         ]);
         $response = file_get_contents('https://api.line.me/v2/bot/message/reply', false, $context);
