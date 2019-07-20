@@ -112,5 +112,6 @@ class BOTFunction
                 ]
             ]
         ];
+        return $message;
     }
 }
