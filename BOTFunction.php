@@ -97,7 +97,7 @@ class BOTFunction
                 ]
             },';
         }
-        $flexMessage = $flexMessage . $termData .       
+        $flexMessage = $flexMessage . substr($termData,0,-1) .       
                 ']
             }
         }';
