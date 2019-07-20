@@ -107,7 +107,7 @@ class BOTFunction
                 [
                     'type' => 'flex',
                     'altText' => 'This is flex',
-                    'contents' => $flexMessage
+                    'contents' => [$flexMessage]
                 ]
             ]
         ];
