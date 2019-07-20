@@ -96,7 +96,7 @@ class BOTFunction
                 ]
             },';
         }
-        $flexMessage = $flexMessage . substr($termData,0,-1) .       
+        $flexMessage = $flexMessage . $termData .       
                 ']
             }
         }';
@@ -107,7 +107,7 @@ class BOTFunction
                 [
                     'type' => 'flex',
                     'altText' => 'This is flex',
-                    'contents' => [$flexMessage]
+                    'contents' => ''
                 ]
             ]
         ];
