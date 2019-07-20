@@ -43,7 +43,7 @@ foreach ($client->parseEvents() as $event) {
                             [
                                 'type' => 'text',
                                 //'text' => $message['text'] . $grade[0][1]
-                                'text' => json_encode($helper->buildFlexGrade($event['replyToken'],'AAAAA'))
+                                'text' => $helper->buildFlexGrade($event['replyToken'],'AAAAA')
                             ]
                         ]
                     ]);

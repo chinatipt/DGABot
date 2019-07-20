@@ -111,6 +111,6 @@ class BOTFunction
                 ]
             ]
         ];
-        return $message;
+        return $flexMessage;
     }
 }
