@@ -2,6 +2,7 @@
 
 require_once('./BOT2Sheet.php');
 require_once('./LINEBotTiny.php');
+require_once('./BOTFunction.php');
 
 /* Read Google Sheet
 $service = new BOT2Sheet(__DIR__);
