@@ -107,7 +107,7 @@ class BOTFunction
                 [
                     'type' => 'flex',
                     'altText' => 'This is flex',
-                    'contents' => [json_decode($flexMessage)]
+                    'contents' => $flexMessage
                 ]
             ]
         ];
