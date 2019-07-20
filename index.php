@@ -36,19 +36,19 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    /*
+                    
                     $client->replyMessage([
                         'replyToken' => $event['replyToken'],
                         'messages' => [
                             [
                                 'type' => 'text',
                                 //'text' => $message['text'] . $grade[0][1]
-                                'text' => $grade[0][0] . $grade[0][1] . $grade[0][2]
+                                'text' => json_encode($helper->buildFlexGrade($event['replyToken'],'AAAAA'))
                             ]
                         ]
                     ]);
-                    */
-                    $client->replyMessage( $helper->buildFlexGrade($event['replyToken'],'AAAAA') );
+                    
+                    //$client->replyMessage( $helper->buildFlexGrade($event['replyToken'],'AAAAA') );
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
