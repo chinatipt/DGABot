@@ -24,8 +24,7 @@ class BOTFunction
             .        '},';
         
         $termData = "";
-        for ($i=0; $i<1; $i++)
-        {
+        for ($i=0; $i<1; $i++) {
             $termData = $termData . '{'
             .    '"type": "separator",'
             .    '"margin": "md"'
@@ -38,8 +37,7 @@ class BOTFunction
             .    '"weight": "bold",'
             .    '"color": "#000000"'
             .'},';
-            for ($j=0; $j<5; $j++)
-            {
+            for ($j=0; $j<1; $j++) {
                 $termData = $termData . '{'
                 .    '"type": "box",'
                 .    '"layout": "horizontal",'
