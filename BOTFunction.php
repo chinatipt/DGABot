@@ -37,7 +37,7 @@ class BOTFunction
             .    '"weight": "bold",'
             .    '"color": "#000000"'
             .'},';
-            for ($j=0; $j<1; $j++) {
+            for ($j=0; $j<5; $j++) {
                 $termData = $termData . '{'
                 .    '"type": "box",'
                 .    '"layout": "horizontal",'
