@@ -22,10 +22,11 @@ class BOTFunction
             .            '"color": "#1DB446",'
             .            '"size": "sm"'
             .        '},';
-        /*
-        for ($i=0; $i<3; $i++)
+        
+        $termData = "";
+        for ($i=0; $i<1; $i++)
         {
-            $termData = '{'
+            $termData = $termData . '{'
             .    '"type": "separator",'
             .    '"margin": "md"'
             .'},'
@@ -91,7 +92,7 @@ class BOTFunction
             .        '}'
             .    ']'
             .'},';
-        }*/
+        }
         $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}';
 
         /*
