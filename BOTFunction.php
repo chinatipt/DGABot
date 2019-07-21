@@ -17,7 +17,7 @@ class BOTFunction
             .    '"contents": ['
             .        '{'
             .            '"type": "text",'
-            .            '"text": ' . $headName . ','
+            .            '"text": "' . $headName . '",'
             .            '"weight": "bold",'
             .            '"color": "#1DB446",'
             .            '"size": "sm"'
