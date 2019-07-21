@@ -93,7 +93,7 @@ class BOTFunction
         }
         $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}';
 
-        /*
+        
         $message = [
             'replyToken' => $replyToken,
             'messages' => [
@@ -103,8 +103,8 @@ class BOTFunction
                     'contents' => json_decode($flexMessage)
                 ]
             ]
-        ];*/
-        return $flexMessage;
+        ];
+        return $message;
     }
 }
 
