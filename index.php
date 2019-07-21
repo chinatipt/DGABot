@@ -43,7 +43,7 @@ foreach ($client->parseEvents() as $event) {
                             [
                                 'type' => 'text',
                                 //'text' => $message['text'] . $grade[0][1]
-                                'text' => $message['text']
+                                'text' => $helper->buildFlexGrade('','')
                             ]
                         ]
                     ]);

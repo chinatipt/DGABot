@@ -106,7 +106,7 @@ class BOTFunction
                 ]
             ]
         ];
-        return $flexMessage;
+        return 'test';
     }
 }
 
