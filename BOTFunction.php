@@ -4,8 +4,7 @@ class BOTFunction
 {
     public function buildFlexGrade($replyToken, $headName)
     {
-        $flexMessage = '
-        {
+        $flexMessage = '{
             "type": "bubble",
             "styles": {
                 "footer": {
@@ -26,8 +25,7 @@ class BOTFunction
 
         for ($i=0; $i<3; $i++)
         {
-            $termData =  
-            '{
+            $termData = '{
                 "type": "separator",
                 "margin": "md"
             },
@@ -41,8 +39,7 @@ class BOTFunction
             },';
             for ($j=0; $j<5; $j++)
             {
-                $termData = $termData .
-                '{
+                $termData = $termData . '{
                     "type": "box",
                     "layout": "horizontal",
                     "contents": [
@@ -64,8 +61,7 @@ class BOTFunction
                     ]
                 },';
             }
-            $termData = $termData .
-            '{
+            $termData = $termData . '{
                 "type": "box",
                 "layout": "horizontal",
                 "contents": [
@@ -96,8 +92,7 @@ class BOTFunction
                 ]
             },';
         }
-        $flexMessage = $flexMessage . $termData .       
-                ']
+        $flexMessage = $flexMessage . $termData .  ']
             }
         }';
 
@@ -107,10 +102,10 @@ class BOTFunction
                 [
                     'type' => 'flex',
                     'altText' => 'This is flex',
-                    'contents' => ''
+                    'contents' => $flexMessage
                 ]
             ]
         ];
-        return $flexMessage;
+        return $message;
     }
 }
