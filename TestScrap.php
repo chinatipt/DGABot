@@ -12,18 +12,4 @@
     $grade = json_decode($page);
 
     echo($grade);
-
-
-
-    /*
-                    $client->replyMessage([
-                        'replyToken' => $event['replyToken'],
-                        'messages' => [
-                            [
-                                'type' => 'text',
-                                //'text' => $message['text'] . $grade[0][1]
-                                'text' => $helper->buildFlexGrade('','')
-                            ]
-                        ]
-                    ]);*/
 ?>

@@ -14,6 +14,20 @@ class BOTFunction
         return $grade;
     }
 
+    public function buildText($replyToken,$text)
+    {
+        $message = [
+            'replyToken' => $replyToken,
+            'messages' => [
+                [
+                    'type' => 'text',
+                    'text' => $text
+                ]
+            ]
+        ];
+        return $message;
+    }
+
     public function buildFlexGrade($replyToken, $queryData)
     {
         $flexMessage = '{'
