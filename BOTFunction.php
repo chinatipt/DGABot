@@ -31,6 +31,9 @@ class BOTFunction
     public function buildFlexGrade($replyToken, $queryData)
     {
         $flexMessage = '{'
+            . '"type": "carousel",'
+            . '"contents": ['
+            . '{'
             . '"type": "bubble",'
             . '"body": {'
             .    '"type": "box",'
@@ -119,7 +122,7 @@ class BOTFunction
             .    ']'
             .'},';
         }
-        $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}';
+        $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}]}';
 
         $message = [
             'replyToken' => $replyToken,
