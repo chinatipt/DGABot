@@ -29,7 +29,7 @@ foreach ($client->parseEvents() as $event) {
                 case 'text':
                     if (substr($message['text'],0,5) == 'grade')
                     {
-                        $stuid = substr($message['text'],5,$message['text'].length);
+                        $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
                         $client->replyMessage($helper->buildText($event['replyToken'], $stuid));
                         //$client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
                     }
