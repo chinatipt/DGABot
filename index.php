@@ -31,7 +31,8 @@ foreach ($client->parseEvents() as $event) {
                     {
                         $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
                         //$client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
-                        $client->replyMessage($helper->buildText($event['replyToken'],'test'));
+                        $str = $helper->buildFlexGrade($event['replyToken'],$stuid);
+                        $client->replyMessage($helper->buildText($event['replyToken'],$str));
                     }
                     break;
                 default:
