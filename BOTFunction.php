@@ -49,35 +49,41 @@ class BOTFunction
             .            '"size": "sm"'
             .        '},';
         
+        $i = 1;
         $termData = "";
-        for ($i=0; $i<1; $i++) {
+        while ( strlen($queryData[$i][0]) == 1 )
+        {
+            $GPA = $queryData[$i][2];
+            $AGPA = $queryData[$i][3];
             $termData = $termData . '{'
             .    '"type": "separator",'
             .    '"margin": "md"'
             .'},'
             .'{'
             .    '"type": "text",'
-            .    '"text": "Term 1",'
+            .    '"text": "Term '.$queryData[$i][0].'/'.$queryData[$i][1].'",'
             .    '"margin": "md",'
             .    '"size": "xxs",'
             .    '"weight": "bold",'
             .    '"color": "#000000"'
             .'},';
-            for ($j=0; $j<5; $j++) {
+            $i++;
+            while ( strlen($queryData[$i][0]) == 6 )
+            {
                 $termData = $termData . '{'
                 .    '"type": "box",'
                 .    '"layout": "horizontal",'
                 .    '"contents": ['
                 .        '{'
                 .            '"type": "text",'
-                .            '"text": "VFX-311: Shading Lighting and Rendering for visual effect",'
+                .            '"text": "'.$queryData[$i][0].': '.$queryData[$i][1].'",'
                 .            '"size": "xxs",'
                 .            '"color": "#555555",'
                 .            '"flex": 9'
                 .        '},'
                 .        '{'
                 .            '"type": "text",'
-                .            '"text": "A",'
+                .            '"text": "'.$queryData[$i][3].'",'
                 .            '"size": "xxs",'
                 .            '"weight": "bold",'
                 .            '"color": "#111111",'
@@ -85,6 +91,7 @@ class BOTFunction
                 .        '}'
                 .    ']'
                 .'},';
+                $i++;
             }
             $termData = $termData . '{'
             .    '"type": "box",'
@@ -98,7 +105,7 @@ class BOTFunction
             .        '},'
             .        '{'
             .            '"type": "text",'
-            .            '"text": "GPA: 3.12",'
+            .            '"text": "Current GPA: '.$GPA.'",'
             .            '"size": "xxs",'
             .            '"weight": "bold",'
             .            '"color": "#111111",'
@@ -107,7 +114,7 @@ class BOTFunction
             .        '},'
             .        '{'
             .            '"type": "text",'
-            .            '"text": "Total GPA: 1.23",'
+            .            '"text": "Accumulative GPA: '.$AGPA.'",'
             .            '"size": "xxs",'
             .            '"weight": "bold",'
             .            '"color": "#111111",'
