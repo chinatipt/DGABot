@@ -12,16 +12,7 @@ $row = $value[0];
 $service->writeRange('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A3:B3', [ ['aaa','bbb'], ]);
 */
 
-$ch = curl_init('https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec');
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$page = curl_exec($ch);
-
-curl_close($ch);
-
-$grade = json_decode($page);
 
 //echo($grade[0][1]);
 
@@ -36,19 +27,11 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    /*
-                    $client->replyMessage([
-                        'replyToken' => $event['replyToken'],
-                        'messages' => [
-                            [
-                                'type' => 'text',
-                                //'text' => $message['text'] . $grade[0][1]
-                                'text' => $helper->buildFlexGrade('','')
-                            ]
-                        ]
-                    ]);*/
-                    
-                    $client->replyMessage($helper->buildFlexGrade($event['replyToken'],'AAAAA'));
+                    if (substr($message['text'],0,5) == 'grade')
+                    {
+                        $stuid = substr($message['text'],5,$message['text'].length);
+                        $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
+                    }
                     break;
                 default:
                     error_log('Unsupported message type: ' . $message['type']);
