@@ -32,12 +32,7 @@ class BOTFunction
     {
         $flexMessage = '{'
             . '"type": "bubble",'
-            . '"styles": {'
-            .    '"footer": {'
-            .        '"separator": true'
-            .    '}'
-            .'},'
-            .'"body": {'
+            . '"body": {'
             .    '"type": "box",'
             .    '"layout": "vertical",'
             .    '"contents": ['
