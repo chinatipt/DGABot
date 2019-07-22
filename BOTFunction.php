@@ -105,7 +105,7 @@ class BOTFunction
             .        '},'
             .        '{'
             .            '"type": "text",'
-            .            '"text": "Term GPA: '.$GPA.'",'
+            .            '"text": "GPA: '.$GPA.'",'
             .            '"size": "xxs",'
             .            '"weight": "bold",'
             .            '"color": "#111111",'
