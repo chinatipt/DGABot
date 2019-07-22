@@ -126,7 +126,6 @@ class BOTFunction
         }
         $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}';
 
-        /*
         $message = [
             'replyToken' => $replyToken,
             'messages' => [
@@ -137,8 +136,7 @@ class BOTFunction
                 ]
             ]
         ];
-        */
-        return $flexMessage;
+        return $message;
     }
 }
 

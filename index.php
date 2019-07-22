@@ -12,15 +12,14 @@ $row = $value[0];
 $service->writeRange('10HCCj0qKKf4OS0xzaBUrk2LdYozoZv3fOQe9Ar1cO1M','Sheet1!A3:B3', [ ['aaa','bbb'], ]);
 */
 
-
-
-//echo($grade[0][1]);
-
 $channelAccessToken = getenv('access_token');
 $channelSecret = getenv('channel_secret');
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $helper = new BOTFunction();
+
+//echo($helper->buildFlexGrade('',$helper->getGrade('5900002')));
+
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
@@ -30,9 +29,8 @@ foreach ($client->parseEvents() as $event) {
                     if (strtolower(substr($message['text'],0,5)) == 'grade')
                     {
                         $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
-                        //$client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
-                        $str = $helper->buildFlexGrade($event['replyToken'],$stuid);
-                        $client->replyMessage($helper->buildText($event['replyToken'],$str));
+                        $client->replyMessage($helper->buildText($event['replyToken'],$stuid));
+                        $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
                     }
                     break;
                 default:
