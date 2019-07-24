@@ -47,6 +47,11 @@ foreach ($client->parseEvents() as $event) {
                     break;
             }
             break;
+        case 'postback':
+            $postback = $event['postback'];
+            $client->replyMessage($helper->buildText($event['replyToken'],$postback['data']));
+
+            break;
         default:
             error_log('Unsupported event type: ' . $event['type']);
             break;
