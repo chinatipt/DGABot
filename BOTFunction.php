@@ -7,10 +7,10 @@ class BOTFunction
         return true;
     }
 
-    public function getGrade($stuid)
+    public function getGoogleSheet($stuid, $type)
     {
         // Read GET Method of Google Sheet
-        $ch = curl_init('https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?stuid='.$stuid);
+        $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?type=".$type."&stuid=".$stuid);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -138,12 +138,12 @@ class BOTFunction
                     "type": "button",
                     "style": "secondary",
                     "height": "sm",
-                    "color": "#905c44",
+                    "color": "#FFB275",
                     "gravity" : "bottom",
                     "action": {
                         "type": "postback",
                         "label": "Unlock",
-                        "data": "unlockid=999888"
+                        "data": "unlockid='.$queryData[$i][0].'"
                     }
                 }
             ]

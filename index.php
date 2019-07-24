@@ -1,4 +1,5 @@
 <?php
+use function GuzzleHttp\Promise\each;
 
 require_once('./BOT2Sheet.php');
 require_once('./LINEBotTiny.php');
@@ -18,8 +19,6 @@ $channelSecret = getenv('channel_secret');
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 $helper = new BOTFunction();
 
-//echo($helper->buildFlexGrade('',$helper->getGrade('5900002')));
-
 foreach ($client->parseEvents() as $event) {
     switch ($event['type']) {
         case 'message':
@@ -33,7 +32,7 @@ foreach ($client->parseEvents() as $event) {
                         if (strtolower(substr($message['text'],0,5)) == 'grade')
                         {
                             $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
-                            $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
+                            $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGoogleSheet($stuid,'getgrade')));
                         }
                     }
                     else
@@ -48,9 +47,16 @@ foreach ($client->parseEvents() as $event) {
             }
             break;
         case 'postback':
-            $postback = $event['postback'];
-            $client->replyMessage($helper->buildText($event['replyToken'],$postback['data']));
+            $stuid = $event['postback']['data'];
+            $isSuccess = $helper->getGoogleSheet(substr($stuid,strlen($stuid),-7),'unlock');
 
+            if ($isSuccess) {
+                $client->replyMessage($helper->buildText($event['replyToken'],'Unlock Successful'));
+            }
+            else {
+                $client->replyMessage($helper->buildText($event['replyToken'],'Cannot Unlock'));
+            }
+            
             break;
         default:
             error_log('Unsupported event type: ' . $event['type']);
