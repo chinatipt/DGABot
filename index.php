@@ -26,10 +26,20 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    if (strtolower(substr($message['text'],0,5)) == 'grade')
+                    $isRegis = $helper->checkAuthen($event['source']['userId']);
+                    if ($isRegis)
                     {
-                        $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
-                        $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
+                        // Return Flex Message
+                        if (strtolower(substr($message['text'],0,5)) == 'grade')
+                        {
+                            $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
+                            $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGrade($stuid)));
+                        }
+                    }
+                    else
+                    {
+                        // Return To Regis
+                        $client->replyMessage($helper->buildText($event['replyToken'],'Register, Type: Regis <ID> <Pass>'));
                     }
                     break;
                 default:

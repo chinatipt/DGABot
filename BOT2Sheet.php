@@ -2,6 +2,7 @@
 
 class BOT2Sheet
 {
+    private $client;
     private $service;
     private $path;
 
@@ -15,6 +16,7 @@ class BOT2Sheet
         $client->setAuthConfig($path . '/credentials.json');
         $this->service = new Google_Service_Sheets($client);
         $this->path = $path;
+        $this->client = $client;
     }
 
     public function readRange($sheetId, $range)
@@ -41,6 +43,34 @@ class BOT2Sheet
             $body,
             $params
         );
+    }
+
+    public function queryRange()
+    {
+        /*
+        $service = $this->service;
+        $datastore = new Google_Service_Datastore($this->client);
+
+        // build the query - this maps directly to the JSON
+        $query = new Google_Service_Datastore_Query([
+            'kind' => [
+                [
+                    'name' => 'linename',
+                ],
+            ],
+            'order' => [
+                'property' => [
+                    'name' => 'title',
+                ],
+                'direction' => 'descending',
+            ],
+            'limit' => 10,
+        ]);
+
+        // build the request and response
+        $request = new Google_Service_Datastore_RunQueryRequest(['query' => $query]);
+        $response = $datastore->projects->runQuery('YOUR_DATASET_ID', $request);
+        */
     }
 
 

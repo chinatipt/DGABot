@@ -2,8 +2,14 @@
 
 class BOTFunction
 {
+    public function checkAuthen($id)
+    {
+        return true;
+    }
+
     public function getGrade($stuid)
     {
+        // Read GET Method of Google Sheet
         $ch = curl_init('https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?stuid='.$stuid);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -122,14 +128,33 @@ class BOTFunction
             .    ']'
             .'},';
         }
-        $flexMessage = $flexMessage . substr($termData,0,-1) . ']}}]}';
+
+        $termData = substr($termData,0,-1) . '{
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "button",
+                    "style": "primary",
+                    "color": "#905c44",
+                    "action": {
+                        "type": "uri",
+                        "label": "Unlock",
+                        "uri": "https://linecorp.com"
+                    }
+                }
+            ]
+        }';
+
+
+        $flexMessage = $flexMessage . $termData . ']}}]}';
 
         $message = [
             'replyToken' => $replyToken,
             'messages' => [
                 [
                     'type' => 'flex',
-                    'altText' => 'This is flex',
+                    'altText' => 'Query Grade.',
                     'contents' => json_decode($flexMessage)
                 ]
             ]
