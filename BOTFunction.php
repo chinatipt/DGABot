@@ -132,15 +132,18 @@ class BOTFunction
         $termData = $termData . '{
             "type": "box",
             "layout": "vertical",
+            "spacing": "md",
             "contents": [
                 {
                     "type": "button",
-                    "style": "primary",
+                    "style": "secondary",
+                    "height": "sm",
                     "color": "#905c44",
                     "action": {
-                        "type": "uri",
+                        "type": "postback",
                         "label": "Unlock",
-                        "uri": "https://linecorp.com"
+                        "data": "unlockid=999888",
+                        "text": "Unlock"
                     }
                 }
             ]
