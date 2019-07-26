@@ -149,7 +149,6 @@ class BOTFunction
             ]
         }';
 
-
         $flexMessage = $flexMessage . $termData . ']}}]}';
 
         $message = [
