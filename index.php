@@ -1,5 +1,5 @@
 <?php
-use function GuzzleHttp\Promise\each;
+//use function GuzzleHttp\Promise\each;
 
 require_once('./BOT2Sheet.php');
 require_once('./LINEBotTiny.php');
@@ -25,20 +25,26 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text':
-                    $isRegis = $helper->checkAuthen($event['source']['userId']);
-                    if ($isRegis)
-                    {
-                        // Return Flex Message
-                        if (strtolower(substr($message['text'],0,5)) == 'grade')
-                        {
-                            $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
-                            $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGoogleSheet($stuid,'getgrade')));
-                        }
+                    if (strtolower(substr($message['text'],0,5)) == 'regis'){
+                        $replytext = $event['source']['userId'];
+                        $client->replyMessage($helper->buildText($event['replyToken'],'id is ' . $replytext));
                     }
-                    else
-                    {
-                        // Return To Regis
-                        $client->replyMessage($helper->buildText($event['replyToken'],'Register, Type: Regis <ID> <Pass>'));
+                    else {
+                        $isRegis = $helper->checkAuthen($event['source']['userId']);
+                        if ($isRegis)
+                        {
+                            // Return Flex Message
+                            if (strtolower(substr($message['text'],0,5)) == 'grade')
+                            {
+                                $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
+                                $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGoogleSheet($stuid,'getgrade')));
+                            }
+                        }
+                        else
+                        {
+                            // Return To Regis
+                            $client->replyMessage($helper->buildText($event['replyToken'],'Register, Type: Regis <ID> <Pass>'));
+                        }
                     }
                     break;
                 default:

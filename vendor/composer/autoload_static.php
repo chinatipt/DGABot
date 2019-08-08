@@ -85,6 +85,13 @@ class ComposerStaticInit7a162f1d7ee44a70b2d1895e0b8e0812
     );
 
     public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Requests' => 
+            array (
+                0 => __DIR__ . '/..' . '/rmccue/requests/library',
+            ),
+        ),
         'G' => 
         array (
             'Google_Service_' => 
