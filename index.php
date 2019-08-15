@@ -31,7 +31,7 @@ foreach ($client->parseEvents() as $event) {
                     }
                     else {
                         $isRegis = $helper->checkAuthen($event['source']['userId']);
-                        if ($isRegis)
+                        if ($isRegis == "true")
                         {
                             // Return Flex Message
                             if (strtolower(substr($message['text'],0,5)) == 'grade')
