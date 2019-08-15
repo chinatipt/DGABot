@@ -43,7 +43,7 @@ foreach ($client->parseEvents() as $event) {
                         else
                         {
                             // Return To Regis
-                            $client->replyMessage($helper->buildText($event['replyToken'],'Register, Type: Regis <ID> <Pass>'));
+                            $client->replyMessage($helper->buildText($event['replyToken'],'Register, Type: regis'));
                         }
                     }
                     break;

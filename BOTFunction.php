@@ -4,7 +4,15 @@ class BOTFunction
 {
     public function checkAuthen($id)
     {
-        return true;
+        // Read GET Method of Google Sheet
+        $ch = curl_init("https://script.google.com/macros/s/AKfycby3F-8Ry9Ex4IJxN-sVo2R6YKRxdi9u2AdKRCCHsNtZ7RzCxOI/exec?id=".$id);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $page = curl_exec($ch);
+        curl_close($ch);
+        $status = json_decode($page);
+        return $status;
     }
 
     public function getGoogleSheet($stuid, $type)
