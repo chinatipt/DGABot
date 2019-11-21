@@ -54,9 +54,9 @@ foreach ($client->parseEvents() as $event) {
             break;
         case 'postback':
             $stuid = $event['postback']['data'];
-            $isSuccess = $helper->getGoogleSheet(substr($stuid,strlen($stuid),-7),'unlock');
+            //$isSuccess = $helper->getGoogleSheet(substr($stuid,strlen($stuid),-7),'unlock');
 
-            $client->replyMessage($helper->buildText($event['replyToken'],$isSuccess));
+            $client->replyMessage($helper->buildText($event['replyToken'],$stuid));
             
             break;
         default:
