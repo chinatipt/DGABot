@@ -151,7 +151,7 @@ class BOTFunction
                     "action": {
                         "type": "postback",
                         "label": "Unlock",
-                        "data": "unlockid='.$queryData[$i][0].'"
+                        "data": "unlockid='.$queryData[0][0].'"
                     }
                 }
             ]
