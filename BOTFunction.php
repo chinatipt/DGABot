@@ -25,11 +25,12 @@ class BOTFunction
         }
         elseif ($type == "getclass")
         {
-            $ch = curl_init(urlencode("https://script.google.com/macros/s/AKfycbxl8MFoCJAqnFq2FTYIh4gj_vOuEp-XDe6FsgIKi--MjKNwGO6m/exec?type=".$type."&teachernick=ชิน&term=2562_2"));
+            $ch = curl_init("https://script.google.com/macros/s/AKfycbxl8MFoCJAqnFq2FTYIh4gj_vOuEp-XDe6FsgIKi--MjKNwGO6m/exec?type=".$type."&teachernick=ชิน&term=2562_2");
         }
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
         $page = curl_exec($ch);
         curl_close($ch);
         $grade = json_decode($page);
