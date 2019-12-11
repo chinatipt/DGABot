@@ -193,7 +193,7 @@ class BOTFunction
                     "contents": [
                     {
                         "type": "text",
-                        "text": "' . '"อาจารย์ AAAAA BBBBB"
+                        "text": "อาจารย์ AAAAA BBBBB",
                         "weight": "bold",
                         "color": "#1DB446",
                         "size": "sm"
