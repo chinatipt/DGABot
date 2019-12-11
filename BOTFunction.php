@@ -223,23 +223,42 @@ class BOTFunction
                         "text": "'.$queryData[$i][1].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 4
+                        "flex": 5,
+                        "margin": "md",
+                        "align": "start"
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][2].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 2
+                        "flex": 0,
+                        "margin": "md",
+                        "align": "center"
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][3].'",
                         "size": "xxs",
-                        "weight": "bold",
-                        "color": "#111111",
+                        "color": "#555555",
                         "align": "center",
-                        "flex": 3
+                        "flex": 1
+                    },
+                    {
+                        "type": "text",
+                        "text": "'.$queryData[$i][4].'",
+                        "size": "xxs",
+                        "color": "#555555",
+                        "margin": "xs",
+                        "flex": 0
+                    },
+                    {
+                        "type": "text",
+                        "text": "'.$queryData[$i][5].'",
+                        "size": "xxs",
+                        "color": "#555555",
+                        "margin": "xs",
+                        "flex": 0
                     }
                     ]
                 }';
