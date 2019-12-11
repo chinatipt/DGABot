@@ -199,27 +199,39 @@ class BOTFunction
                         "size": "sm"
                     },
                     {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                        {
-                            "type": "text",
-                            "text": "jkkjkjhk",
-                            "size": "xxs",
-                            "color": "#555555",
-                            "flex": 9
-                        },
-                        {
-                            "type": "text",
-                            "text": "hkjhkhkj",
-                            "size": "xxs",
-                            "weight": "bold",
-                            "color": "#111111",
-                            "align": "center"
-                        }
-                        ]
+                        "type": "separator",
+                        "margin": "md"
+                    }';
+
+
+        for ($i=1; $i<$queryData.length;$i++)
+        {
+            $flexMessage = $flexMessage .
+                ',{
+                    "type": "box",
+                    "layout": "horizontal",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "jkkjkjhk",
+                        "size": "xxs",
+                        "color": "#555555",
+                        "flex": 9
+                    },
+                    {
+                        "type": "text",
+                        "text": "hkjhkhkj",
+                        "size": "xxs",
+                        "weight": "bold",
+                        "color": "#111111",
+                        "align": "center"
                     }
                     ]
+                }';
+        }
+        
+        $flexMessage = $flexMessage .
+                    ']
                 }
             }]}';
 
