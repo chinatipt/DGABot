@@ -197,7 +197,29 @@ class BOTFunction
                         "weight": "bold",
                         "color": "#1DB446",
                         "size": "sm"
-                    }]
+                    },
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                        {
+                            "type": "text",
+                            "text": "jkkjkjhk",
+                            "size": "xxs",
+                            "color": "#555555",
+                            "flex": 9
+                        },
+                        {
+                            "type": "text",
+                            "text": "hkjhkhkj",
+                            "size": "xxs",
+                            "weight": "bold",
+                            "color": "#111111",
+                            "align": "center"
+                        }
+                        ]
+                    }
+                    ]
                 }
             }]}';
 
@@ -206,7 +228,7 @@ class BOTFunction
             'messages' => [
                 [
                     'type' => 'flex',
-                    'altText' => 'Query Grade.',
+                    'altText' => 'Query Class.',
                     'contents' => json_decode($flexMessage)
                 ]
             ]
