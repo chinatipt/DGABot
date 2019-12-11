@@ -238,7 +238,8 @@ class BOTFunction
                         "size": "xxs",
                         "weight": "bold",
                         "color": "#111111",
-                        "align": "center"
+                        "align": "center",
+                        "flex": 3
                     }
                     ]
                 }';
