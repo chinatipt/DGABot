@@ -25,7 +25,7 @@ class BOTFunction
         }
         elseif ($type == "getclass")
         {
-            $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec");
+            $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?type=".$type."&stuid=".$stuid);
         }
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -200,9 +200,7 @@ class BOTFunction
             .        '},'
             .    ']'
             . '}'
-            . '}'
-            . ']'
-            . '}';
+            . '}]}';
 
         $message = [
             'replyToken' => $replyToken,
