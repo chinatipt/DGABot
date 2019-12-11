@@ -39,6 +39,10 @@ foreach ($client->parseEvents() as $event) {
                                 $stuid = trim(substr($message['text'],5,strlen($message['text']))," ");
                                 $client->replyMessage($helper->buildFlexGrade($event['replyToken'],$helper->getGoogleSheet($stuid,'getgrade')));
                             }
+                            elseif (strtolower(substr($message['text'],0,5)) == 'class')
+                            {
+                                $client->replyMessage($helper->buildFlexClass($event['replyToken'],$helper->getGoogleSheet($stuid,'getclass')));
+                            }
                         }
                         else
                         {

@@ -18,7 +18,15 @@ class BOTFunction
     public function getGoogleSheet($stuid, $type)
     {
         // Read GET Method of Google Sheet
-        $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?type=".$type."&stuid=".$stuid);
+        $ch = "";
+        if ($type == "getgrade")
+        {
+            $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?type=".$type."&stuid=".$stuid);
+        }
+        elseif ($type == "getclass")
+        {
+            $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec");
+        }
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -158,6 +166,43 @@ class BOTFunction
         }';
 
         $flexMessage = $flexMessage . $termData . ']}}]}';
+
+        $message = [
+            'replyToken' => $replyToken,
+            'messages' => [
+                [
+                    'type' => 'flex',
+                    'altText' => 'Query Grade.',
+                    'contents' => json_decode($flexMessage)
+                ]
+            ]
+        ];
+        return $message;
+    }
+
+    public function buildFlexClass($replyToken, $queryData)
+    {
+        $flexMessage = '{'
+            . '"type": "carousel",'
+            . '"contents": ['
+            . '{'
+            . '"type": "bubble",'
+            . '"body": {'
+            .    '"type": "box",'
+            .    '"layout": "vertical",'
+            .    '"contents": ['
+            .        '{'
+            .            '"type": "text",'
+            .            '"text": "' . '"อาจารย์ AAAAA BBBBB"'
+            .            '"weight": "bold",'
+            .            '"color": "#1DB446",'
+            .            '"size": "sm"'
+            .        '},'
+            .    ']'
+            . '}'
+            . '}'
+            . ']'
+            . '}';
 
         $message = [
             'replyToken' => $replyToken,
