@@ -25,7 +25,7 @@ class BOTFunction
         }
         elseif ($type == "getclass")
         {
-            $ch = curl_init("https://script.google.com/macros/s/AKfycbxqpJIVwnCZz5YMx1MNpgPH1LBy45TapnY39I04shu6ON86EwSX/exec?type=".$type."&stuid=".$stuid);
+            $ch = curl_init("https://script.google.com/macros/s/AKfycbxl8MFoCJAqnFq2FTYIh4gj_vOuEp-XDe6FsgIKi--MjKNwGO6m/exec?type=".$type."&teachernick=ชิน&term=2562_2");
         }
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -193,7 +193,7 @@ class BOTFunction
                     "contents": [
                     {
                         "type": "text",
-                        "text": "อาจารย์ AAAAA BBBBB",
+                        "text": "'.$queryData[0][0].'",
                         "weight": "bold",
                         "color": "#1DB446",
                         "size": "sm"
