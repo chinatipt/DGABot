@@ -182,25 +182,24 @@ class BOTFunction
 
     public function buildFlexClass($replyToken, $queryData)
     {
-        $flexMessage = '{'
-            . '"type": "carousel",'
-            . '"contents": ['
-            . '{'
-            . '"type": "bubble",'
-            . '"body": {'
-            .    '"type": "box",'
-            .    '"layout": "vertical",'
-            .    '"contents": ['
-            .        '{'
-            .            '"type": "text",'
-            .            '"text": "' . '"อาจารย์ AAAAA BBBBB"'
-            .            '"weight": "bold",'
-            .            '"color": "#1DB446",'
-            .            '"size": "sm"'
-            .        '},'
-            .    ']'
-            . '}'
-            . '}]}';
+        $flexMessage = '{
+            "type": "carousel",
+            "contents": [
+            {
+                "type": "bubble",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": "' . '"อาจารย์ AAAAA BBBBB"
+                        "weight": "bold",
+                        "color": "#1DB446",
+                        "size": "sm"
+                    }]
+                }
+            }]}';
 
         $message = [
             'replyToken' => $replyToken,
