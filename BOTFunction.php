@@ -204,7 +204,7 @@ class BOTFunction
                     }';
 
 
-        for ($i=1; $i<$queryData.length;$i++)
+        for ($i=1; $i<sizeof($queryData);$i++)
         {
             $flexMessage = $flexMessage .
                 ',{
