@@ -229,7 +229,7 @@ class BOTFunction
                     },
                     {
                         "type": "text",
-                        "text": "S1",
+                        "text": "S"'.$queryData[$i][2].',
                         "size": "xxs",
                         "color": "#555555",
                         "flex": 0,
@@ -238,7 +238,7 @@ class BOTFunction
                     },
                     {
                         "type": "text",
-                        "text": "203",
+                        "text": "'.$queryData[$i][3].'",
                         "size": "xxs",
                         "color": "#555555",
                         "align": "center",
@@ -246,7 +246,7 @@ class BOTFunction
                     },
                     {
                         "type": "text",
-                        "text": "พฤ",
+                        "text": "'.$queryData[$i][4].'",
                         "size": "xxs",
                         "color": "#555555",
                         "margin": "xs",
@@ -254,7 +254,7 @@ class BOTFunction
                     },
                     {
                         "type": "text",
-                        "text": "เช้า",
+                        "text": "'.$queryData[$i][5].'",
                         "size": "xxs",
                         "color": "#555555",
                         "margin": "xs",
