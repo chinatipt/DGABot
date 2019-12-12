@@ -216,14 +216,14 @@ class BOTFunction
                         "text": "'.$queryData[$i][0].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 5
+                        "flex": 6
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][1].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 15,
+                        "flex": 14,
                         "align": "start"
                     },
                     {
@@ -238,14 +238,14 @@ class BOTFunction
                         "text": "'.$queryData[$i][4].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 2
+                        "flex": 3
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][5].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 2
+                        "flex": 3
                     },
                     {
                         "type": "text",
