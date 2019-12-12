@@ -216,15 +216,14 @@ class BOTFunction
                         "text": "'.$queryData[$i][0].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 2
+                        "flex": 5
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][1].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 5,
-                        "margin": "md",
+                        "flex": 15,
                         "align": "start"
                     },
                     {
@@ -232,33 +231,29 @@ class BOTFunction
                         "text": "S'.$queryData[$i][2].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 0,
-                        "margin": "md",
-                        "align": "center"
-                    },
-                    {
-                        "type": "text",
-                        "text": "'.$queryData[$i][3].'",
-                        "size": "xxs",
-                        "color": "#555555",
-                        "align": "center",
-                        "flex": 1
+                        "flex": 2
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][4].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "margin": "xs",
-                        "flex": 0
+                        "flex": 2
                     },
                     {
                         "type": "text",
                         "text": "'.$queryData[$i][5].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "margin": "xs",
-                        "flex": 0
+                        "flex": 2
+                    },
+                    {
+                        "type": "text",
+                        "text": "'.$queryData[$i][3].'",
+                        "size": "xxs",
+                        "color": "#555555",
+                        "flex": 3,
+                        "align": "end"
                     }
                     ]
                 }';
