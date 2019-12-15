@@ -41,7 +41,8 @@ foreach ($client->parseEvents() as $event) {
                             }
                             elseif (strtolower(substr($message['text'],0,5)) == 'class')
                             {
-                                $client->replyMessage($helper->buildFlexClass($event['replyToken'],$helper->getGoogleSheet("test",'getclass')));
+                                $teacherName = trim(substr($message['text'],5,strlen($message['text']))," ");
+                                $client->replyMessage($helper->buildFlexClass($event['replyToken'],$helper->getGoogleSheet($teacherName,'getclass')));
                             }
                         }
                         else
