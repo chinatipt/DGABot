@@ -216,7 +216,7 @@ class BOTFunction
                         "text": "'.$queryData[$i][0].'",
                         "size": "xxs",
                         "color": "#555555",
-                        "flex": 6
+                        "flex": 7
                     },
                     {
                         "type": "text",
